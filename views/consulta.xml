@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+        <record model="ir.ui.view" id="consulta_form_view">
+            <field name="name">consulta.form</field>
+            <field name="model">tickets.consulta</field>
+            <field name="arch" type="xml">
+                <form string="Consulta Form">
+                    <sheet>
+                        <group>
+                            <field name="modelo"/>
+                            <field name="almacen"/>
+                            <label for="consultar_articulos" class="btn btn-sm btn-primary" colspan='2'/>
+                            <field name="consultar_articulos" invisible="1"/>
+                            <field name="articulos">
+                                <tree editable="bottom" create="false" delete="false">
+                                    <field name="itemcode2"/>
+                                    <field name="onhand"/>
+                                    <field name="impresion"/>
+                                    <field name="descripcion"/>
+                                    <field name="color"/>
+                                    <field name="talla"/>
+                                    <field name="precio"/>
+                                    <field name="modelo"/>
+                                </tree>
+                            </field>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+
+        <!-- window action -->
+        <!--
+            The following tag is an action definition for a "window action",
+            that is an action opening a view or a set of views
+        -->
+        <record model="ir.actions.act_window" id="consulta_action">
+            <field name="name">Consulta</field>
+            <field name="res_model">tickets.consulta</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_smiling_face">Create the first course
+                </p>
+            </field>
+        </record>
+
+        <act_window id="wizard_wizard_print_product_label3"
+            name="Tickets"
+            src_model="tickets.consulta"
+            res_model="wizard.print.record.label"
+            view_type="form" view_mode="form"
+            key2="client_print_multi" target="new"
+        />
+
+        <!-- top level menu: no parent -->
+        <menuitem id="main_tickets_menu" name="Tickets"/>
+        <!-- A first level in the left side menu is needed
+             before using action= attribute -->
+        <menuitem id="tickets_menu" name="Consulta"
+                  parent="main_tickets_menu"/>
+        <!-- the following menuitem should appear *after*
+             its parent openacademy_menu and *after* its
+             action course_list_action -->
+        <menuitem id="consulta_menu" name="Consulta" parent="tickets_menu"
+                  action="consulta_action"/>
+        <!-- Full id location:
+             action="openacademy.course_list_action"
+             It is not required when it is the same module -->
+
+</odoo>
+
