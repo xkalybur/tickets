@@ -5,8 +5,7 @@ class Consulta(models.Model):
     _description = "Articulos"
 
     itemcode2 = fields.Char(
-        string="Item",
-        required=True
+        string="Item"
     )
 
     onhand = fields.Integer(

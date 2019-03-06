@@ -71,8 +71,7 @@ def get_articulos(modelo, almacen):
                 'onhand': row.onhand,
                 'descripcion': row.descripcion,
                 'color': row.color,
-                'talla': row[4],
-                'descripcion': row.talla,
+                'talla': row.talla,
                 'precio': row.precio,
                 'modelo': row.modelo
             }

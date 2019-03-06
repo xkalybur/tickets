@@ -14,14 +14,14 @@
                             <field name="consultar_articulos" invisible="1"/>
                             <field name="articulos">
                                 <tree editable="bottom" create="false" delete="false">
-                                    <field name="itemcode2"/>
-                                    <field name="onhand"/>
+                                    <field name="itemcode2" attrs="{'readonly':True}"/>
+                                    <field name="onhand" attrs="{'readonly':True}"/>
                                     <field name="impresion"/>
-                                    <field name="descripcion"/>
-                                    <field name="color"/>
-                                    <field name="talla"/>
-                                    <field name="precio"/>
-                                    <field name="modelo"/>
+                                    <field name="descripcion" attrs="{'readonly':True}"/>
+                                    <field name="color" attrs="{'readonly':True}"/>
+                                    <field name="talla" attrs="{'readonly':True}"/>
+                                    <field name="precio" attrs="{'readonly':True}"/>
+                                    <field name="modelo" attrs="{'readonly':True}"/>
                                 </tree>
                             </field>
                             <field name="printer_id"/>
