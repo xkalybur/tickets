@@ -24,6 +24,9 @@
                                     <field name="modelo"/>
                                 </tree>
                             </field>
+                            <field name="printer_id"/>
+                            <field name="label_id"/>
+                            <button string="Imprimir Ticket" type="object" name="imprimir_ticket" colspan="2"/>
                         </group>
                     </sheet>
                 </form>
