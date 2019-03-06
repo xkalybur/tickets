@@ -62,13 +62,18 @@ class Consulta(models.Model):
 
     @api.multi
     def imprimir_ticket(self):
-        self.env['printing.label.zpl2'].browse(self.label_id.id).print_label(
-            self.env['printing.printer'].browse(self.printer_id.id),
-            self.env['tickets.consulta'].browse(self.id)
-        )
-        self.log.logger.info(self.env['printing.label.zpl2'].browse(self.label_id))
-        self.log.logger.info(self.env['printing.printer'].browse(self.printer_id))
-        self.log.logger.info(self.env['tickets.consulta'].browse(self.id))
+        for item in self.articulos:
+            self.env['printing.label.zpl2'].browse(self.label_id.id).print_label(
+                self.env['printing.printer'].browse(self.printer_id.id),
+                self.env['tickets.articulos'].browse(item.id)
+            )
+        # self.env['printing.label.zpl2'].browse(self.label_id.id).print_label(
+        #     self.env['printing.printer'].browse(self.printer_id.id),
+        #     self.env['tickets.consulta'].browse(self.id)
+        # )
+        # self.log.logger.info(self.env['printing.label.zpl2'].browse(self.label_id))
+        # self.log.logger.info(self.env['printing.printer'].browse(self.printer_id))
+        # self.log.logger.info(self.env['tickets.consulta'].browse(self.id))
         return
 
 
