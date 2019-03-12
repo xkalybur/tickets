@@ -4,6 +4,10 @@ class Consulta(models.Model):
     _name = 'tickets.articulos'
     _description = "Articulos"
 
+    check = fields.Boolean(
+        string=''
+    )
+
     itemcode2 = fields.Char(
         string="Item"
     )

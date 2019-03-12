@@ -1,6 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
 
+        <template id="assets_backend" name="custom assets" inherit_id="web.assets_backend">
+           <xpath expr="." position="inside">
+               <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
+           </xpath>
+        </template>
+
+
+
+
         <record model="ir.ui.view" id="consulta_form_view">
             <field name="name">consulta.form</field>
             <field name="model">tickets.consulta</field>
@@ -13,20 +22,21 @@
                             <label for="consultar_articulos" class="btn btn-sm btn-primary" colspan='2'/>
                             <field name="consultar_articulos" invisible="1"/>
                             <field name="articulos">
-                                <tree editable="bottom" create="false" delete="false">
-                                    <field name="itemcode2" attrs="{'readonly':True}"/>
-                                    <field name="onhand" attrs="{'readonly':True}"/>
+                                <tree editable="top" create="false" delete="false">
+                                    <field name="check" attrs="{'readonly':False}"/>
+                                    <field name="itemcode2" attrs="{'readonly':False}"/>
+                                    <field name="onhand" attrs="{'readonly':False}"/>
                                     <field name="impresion"/>
-                                    <field name="descripcion" attrs="{'readonly':True}"/>
-                                    <field name="color" attrs="{'readonly':True}"/>
-                                    <field name="talla" attrs="{'readonly':True}"/>
-                                    <field name="precio" attrs="{'readonly':True}"/>
-                                    <field name="modelo" attrs="{'readonly':True}"/>
+                                    <field name="descripcion" attrs="{'readonly':False}"/>
+                                    <field name="color" attrs="{'readonly':False}"/>
+                                    <field name="talla" attrs="{'readonly':False}"/>
+                                    <field name="precio" attrs="{'readonly':False}"/>
+                                    <field name="modelo" attrs="{'readonly':False}"/>
                                 </tree>
                             </field>
                             <field name="printer_id"/>
                             <field name="label_id"/>
-                            <button string="Imprimir Ticket" type="object" name="imprimir_ticket" colspan="2"/>
+                            <button class="btn btn-sm btn-primary" style="font-size:1.08333333rem;font-weight: bold;" name="imprimir_ticket" colspan="2"><i class="fa fa-print"></i> Imprimir Ticket</button>
                         </group>
                     </sheet>
                 </form>

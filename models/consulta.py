@@ -63,7 +63,7 @@ class Consulta(models.Model):
     @api.multi
     def imprimir_ticket(self):
         for item in self.articulos:
-            if item.impresion == 0:
+            if item.impresion == 0 or item.check == False:
                 continue
             self.env['printing.label.zpl2'].browse(self.label_id.id).print_label(
                 self.env['printing.printer'].browse(self.printer_id.id),
